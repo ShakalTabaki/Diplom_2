@@ -1,6 +1,7 @@
 import allure
 import pytest
 from methods.user_methods import UserMethods
+from data import INCORRECT_DATA
 
 
 @allure.feature("Логин пользователя")
@@ -43,4 +44,4 @@ class TestLoginUser:
         response = UserMethods.login_user(login_data)
 
         assert response.status_code == 401
-        assert response.json()["message"] == "email or password are incorrect"
+        assert response.json()["message"] == INCORRECT_DATA
